@@ -1,0 +1,14 @@
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\bin\Debug\Lab1.exe.config
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\bin\Debug\Lab1.exe
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\bin\Debug\Lab1.pdb
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1.csprojAssemblyReference.cache
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\MainWindow.g.cs
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\App.g.cs
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1_MarkupCompile.cache
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1_MarkupCompile.lref
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\MainWindow.baml
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1.g.resources
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1.Properties.Resources.resources
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1.csproj.GenerateResource.cache
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1.exe
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1.pdb
