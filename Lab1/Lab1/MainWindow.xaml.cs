@@ -21,6 +21,25 @@ namespace Lab1
             //partial - czesc implementacji klasy
     public partial class MainWindow : Window
     {
+        private class Person
+        {
+            public string name = "";
+            public string surname = "";
+            public double age = 0.0;
+
+            public Person(string name, string surname, double age)
+            {
+                this.name = name;
+                this.surname = surname;
+                this.age = age;
+            }
+
+            public override string ToString()
+            {
+                return $"Imie: {name}, Nazwisko: {surname}, Wiek: {age}";
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +49,7 @@ namespace Lab1
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
+            
             string name = textBoxName.Text.ToString();
             string surname = textBoxSurname.Text.ToString();
             string age = sliderAge.Value.ToString();
@@ -57,6 +77,11 @@ namespace Lab1
         {
             string ageValue = sliderAge.Value.ToString();
             labelAgeValue.Content = $"{ageValue}";
+        }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -8,28 +8,39 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <!--//1* do 2* proporcje *- jakby waaga-->
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <StackPanel x:Name="stackPanelName" Grid.Column="0">
             <Label x:Name="labelName">Imie</Label>
-            <TextBox x:Name="textBoxName" ></TextBox>
+            <Border>
+                <TextBox x:Name="textBoxName" ></TextBox>
+            </Border>
             <Label x:Name="labelSurname">Nazwisko</Label>
-            <TextBox x:Name="textBoxSurname" ></TextBox>
+            <Border>
+                <TextBox x:Name="textBoxSurname" > </TextBox>
+            </Border>
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="labelAge">Wiek</Label>
                 <Label x:Name="labelAgeValue" Width="40"/>
             </StackPanel>
             <Slider x:Name="sliderAge" Value="0" Minimum="0" Maximum="100"  TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="sliderAge_ValueChanged"></Slider>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="buttonAdd" Content="Dodaj" Click="buttonAdd_Click"  Width="93"/>
-                <Button x:Name="buttonEdit" Content="Edytuj" Click="buttonEdit_Click" Width="75"/>
-            </StackPanel>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Button x:Name="buttonAdd" Content="Dodaj" Grid.Column="0" Click="buttonAdd_Click" />
+                <Button x:Name="buttonEdit" Content="Edytuj" Grid.Column="1" Click="buttonEdit_Click"/>
+                <Button x:Name="buttonDelete" Content="Usuń" Grid.Column="2" Click="buttonDelete_Click" />
+
+            </Grid>
         </StackPanel>
-        <ListBox x:Name="listBoxName" Grid.Column="1">
-        
-        </ListBox>
-        
+     
+        <ListBox x:Name="listBoxName" Grid.Column="1"/>
+
     </Grid>
 </Window>
