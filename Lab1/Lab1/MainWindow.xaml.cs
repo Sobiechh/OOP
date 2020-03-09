@@ -21,6 +21,7 @@ namespace Lab1
             //partial - czesc implementacji klasy
     public partial class MainWindow : Window
     {
+
         private class Person
         {
             public string name = "";
@@ -47,25 +48,85 @@ namespace Lab1
             //blysakawica - event
         }
 
+        private void clear()
+        {
+            textBoxName.Text = "";
+            textBoxSurname.Text = "";
+            sliderAge.Value = 0;
+        }
+
+        private void clearColors()
+        {
+            textBoxSurname.Background = textBoxName.Background = labelAge.Background = default;
+            borderAge.BorderBrush = borderName.BorderBrush = borderSurname.BorderBrush = default;
+            textBoxName.ToolTip = textBoxSurname.ToolTip = labelAge.ToolTip = default;
+        }
+
+        private void Check()
+        {
+            bool nameCorrect = textBoxName.Text.Length != 0 & textBoxName.Text.All(char.IsLetter) ? true : false;
+            bool surnameCorrect = textBoxSurname.Text.Length != 0 & textBoxSurname.Text.All(char.IsLetter) ? true : false;
+            bool ageCorrect = sliderAge.Value != 0 ? true : false;
+            var box_b = new SolidColorBrush(Color.FromRgb(255, 167, 187));
+            var border_b = System.Windows.Media.Brushes.Red;
+
+            if (nameCorrect & surnameCorrect & ageCorrect)
+            {
+                listBoxName.Items.Add(new Person(textBoxName.Text.ToString(), textBoxSurname.Text.ToString(), sliderAge.Value));
+                clear();
+                clearColors();
+            }
+            if(nameCorrect)
+            {
+                clearColors();
+            }
+            if (surnameCorrect)
+            {
+                clearColors();
+            }
+            if (ageCorrect)
+            {
+                clearColors();
+            }
+            if (!nameCorrect)
+            {
+                textBoxName.Background = box_b;
+                borderName.BorderBrush = border_b;
+                textBoxName.ToolTip = "Nieprawidłowe imie";
+            }
+            if (!surnameCorrect)
+            {
+                textBoxSurname.Background = box_b;
+                borderSurname.BorderBrush = border_b;
+                textBoxSurname.ToolTip = "Nieprawidłowe nazwisko";
+            }
+            if (!ageCorrect)
+            {
+                borderAge.Background = box_b;
+                borderAge.BorderBrush = border_b;
+                labelAge.ToolTip = "Nieprawidłowy wiek";
+            }
+        }
+
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            
-            string name = textBoxName.Text.ToString();
-            string surname = textBoxSurname.Text.ToString();
-            string age = sliderAge.Value.ToString();
-            listBoxName.Items.Add($"Imie: {name}, Naziwsko: {surname}, wiek: {age}");
+            Check();
         }
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
         {
-            string name = textBoxName.Text.ToString();
-            string surname = textBoxSurname.Text.ToString();
-            string age = sliderAge.Value.ToString();
-            var selected = listBoxName.SelectedIndex;
+            Person person_selected = listBoxName.SelectedItem as Person;
+            var select_id = listBoxName.SelectedIndex;
             try
             {
-                listBoxName.Items.RemoveAt(selected);
-                listBoxName.Items.Insert(selected, $"Imie: {name}, Naziwsko: {surname}, wiek: {age}");
+                person_selected.name = textBoxName.Text.ToString();
+                person_selected.surname = textBoxSurname.Text.ToString();
+                person_selected.age = Convert.ToDouble(labelAgeValue.Content.ToString());
+                listBoxName.Items.Insert(select_id, person_selected.ToString());
+                listBoxName.Items.Remove(listBoxName.SelectedItem);
+
+                clear();
+                clearColors();
             }
             catch
             {
@@ -81,7 +142,24 @@ namespace Lab1
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            var selected = listBoxName.SelectedIndex;
+            try
+            {
+                listBoxName.Items.RemoveAt(selected);
+            }
+            catch
+            {
+                System.Console.WriteLine("Nothing selcted");
+            };
         }
+
+        private void listBoxName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Person person = listBoxName.SelectedItem as Person;
+            textBoxName.Text = person.name.ToString();
+            textBoxSurname.Text = person.surname.ToString();
+            labelAgeValue.Content = person.age.ToString();
+        }
+
     }
 }

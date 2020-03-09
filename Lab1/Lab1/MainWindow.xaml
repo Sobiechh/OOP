@@ -13,18 +13,22 @@
         </Grid.ColumnDefinitions>
         <StackPanel x:Name="stackPanelName" Grid.Column="0">
             <Label x:Name="labelName">Imie</Label>
-            <Border>
+            <Border Name="borderName" BorderThickness="0.9">
                 <TextBox x:Name="textBoxName" ></TextBox>
             </Border>
             <Label x:Name="labelSurname">Nazwisko</Label>
-            <Border>
+            <Border x:Name="borderSurname" BorderThickness="0.9">
                 <TextBox x:Name="textBoxSurname" > </TextBox>
             </Border>
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="labelAge">Wiek</Label>
-                <Label x:Name="labelAgeValue" Width="40"/>
+                <Border x:Name="borderAge" BorderThickness="0.9">
+                    <Label x:Name="labelAgeValue" Width="40"/>
+                </Border>
             </StackPanel>
-            <Slider x:Name="sliderAge" Value="0" Minimum="0" Maximum="100"  TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="sliderAge_ValueChanged"></Slider>
+            <Slider x:Name="sliderAge" Value="0" Minimum="0" Maximum="100"  TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="sliderAge_ValueChanged">
+                
+            </Slider>
             
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -40,7 +44,7 @@
             </Grid>
         </StackPanel>
      
-        <ListBox x:Name="listBoxName" Grid.Column="1"/>
+        <ListBox x:Name="listBoxName" Grid.Column="1" SelectionChanged="listBoxName_SelectionChanged"/>
 
     </Grid>
 </Window>
