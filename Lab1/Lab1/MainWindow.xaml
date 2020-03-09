@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="800">
+        Title="Formularz" Height="300" Width="800">
     <Grid Background="Azure">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>

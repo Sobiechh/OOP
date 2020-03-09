@@ -155,10 +155,17 @@ namespace Lab1
 
         private void listBoxName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Person person = listBoxName.SelectedItem as Person;
-            textBoxName.Text = person.name.ToString();
-            textBoxSurname.Text = person.surname.ToString();
-            labelAgeValue.Content = person.age.ToString();
+            try
+            {
+                Person person = listBoxName.SelectedItem as Person;
+                textBoxName.Text = person.name.ToString();
+                textBoxSurname.Text = person.surname.ToString();
+                labelAgeValue.Content = person.age.ToString();
+            }
+            catch
+            {
+
+            }
         }
 
     }
