@@ -1,0 +1,14 @@
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\bin\Debug\Kalkulator.exe.config
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\bin\Debug\Kalkulator.exe
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\bin\Debug\Kalkulator.pdb
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\Kalkulator.csprojAssemblyReference.cache
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\MainWindow.g.cs
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\App.g.cs
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\Kalkulator_MarkupCompile.cache
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\Kalkulator_MarkupCompile.lref
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\MainWindow.baml
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\Kalkulator.g.resources
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\Kalkulator.Properties.Resources.resources
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\Kalkulator.csproj.GenerateResource.cache
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\Kalkulator.exe
+D:\Studia\semestr IV\Programowanie\Kalkulator\Kalkulator\Kalkulator\obj\Debug\Kalkulator.pdb
