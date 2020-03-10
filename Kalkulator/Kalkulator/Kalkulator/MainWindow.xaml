@@ -6,10 +6,41 @@
         xmlns:local="clr-namespace:Kalkulator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*"></ColumnDefinition>
-            <ColumnDefinition Width="90*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-    </Grid>
+    <DockPanel>
+        <TextBox DockPanel.Dock="Top" x:Name="currentEquation" Height="50" IsEnabled="False" FontSize="30" VerticalContentAlignment="Center" FontFamily="Consolas" Foreground="Black">
+        </TextBox>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="b1" Grid.Column="0" Content="1"/>
+            <Button x:Name="b2" Grid.Column="1" Content="2"/>
+            <Button x:Name="b3" Grid.Column="2" Content="3"/>
+            <Button x:Name="bdelete" Grid.Column="3" Content="Del"/>
+            <Button x:Name="bclear" Grid.Column="4" Content="Clear"/>
+            <Button x:Name="b4" Grid.Column="0" Grid.Row="1" Content="4"/>
+            <Button x:Name="b5" Grid.Column="1" Grid.Row="1" Content="5"/>
+            <Button x:Name="b6" Grid.Column="2" Grid.Row="1" Content="6"/>
+            <Button x:Name="bplus" Grid.Column="3" Grid.Row="1" Content="+"/>
+            <Button x:Name="bminus" Grid.Column="4" Grid.Row="1" Content="-"/>
+            <Button x:Name="b7" Grid.Column="0" Grid.Row="2" Content="7"/>
+            <Button x:Name="b8" Grid.Column="1" Grid.Row="2" Content="8"/>
+            <Button x:Name="b9" Grid.Column="2" Grid.Row="2" Content="9"/>
+            <Button x:Name="btimes" Grid.Column="3" Grid.Row="2" Content="×"/>
+            <Button x:Name="bdivide" Grid.Column="4" Grid.Row="2" Content="÷"/>
+            <Button x:Name="b0" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Content="0"/>
+            <Button x:Name="bdot" Grid.Column="2" Grid.Row="3" Content="."/>
+            <Button x:Name="bequals" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" Content="="/>
+        </Grid>
+    </DockPanel>
 </Window>
