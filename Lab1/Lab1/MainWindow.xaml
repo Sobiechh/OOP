@@ -13,13 +13,15 @@
         </Grid.ColumnDefinitions>
         <StackPanel x:Name="stackPanelName" Grid.Column="0">
             <Label x:Name="labelName">Imie</Label>
-            <Border Name="borderName" BorderThickness="0.9">
-                <TextBox x:Name="textBoxName" ></TextBox>
-            </Border>
+            <!--<Border Name="borderName" BorderThickness="0.9">  TExtBoxwithError-->
+                <TextBox x:Name="textBoxName" FontSize="21" ></TextBox>
+                <local:TextBoxWithErrorProvider x:Name="textBoxError" Margin="5"/>
+            <!--</Border>-->
             <Label x:Name="labelSurname">Nazwisko</Label>
             <Border x:Name="borderSurname" BorderThickness="0.9">
-                <TextBox x:Name="textBoxSurname" > </TextBox>
+                <TextBox x:Name="textBoxSurname" FontSize="21"> </TextBox>
             </Border>
+            <local:TextBoxWithErrorProvider x:Name="textBoxError1" Margin="5"/>
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="labelAge">Wiek</Label>
                 <Border x:Name="borderAge" BorderThickness="0.9">

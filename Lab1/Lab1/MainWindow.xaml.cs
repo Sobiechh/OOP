@@ -24,9 +24,9 @@ namespace Lab1
 
         private class Person
         {
-            public string name = "";
-            public string surname = "";
-            public double age = 0.0;
+            public string name { get; set; } = "";
+            public string surname { get; set; } = "";
+            public double age { get; set; } = 0.0;
 
             public Person(string name, string surname, double age)
             {
@@ -43,9 +43,11 @@ namespace Lab1
 
         public MainWindow()
         {
+            TextBoxWithErrorProvider.BrushForAll = Brushes.Red; //musi sie to stac przed instancja
             InitializeComponent();
             //klucz oznacza properties
             //blysakawica - event
+            textBoxError.Text = "działa";
         }
 
         private void clear()
@@ -58,7 +60,7 @@ namespace Lab1
         private void clearColors()
         {
             textBoxSurname.Background = textBoxName.Background = labelAge.Background = default;
-            borderAge.BorderBrush = borderName.BorderBrush = borderSurname.BorderBrush = default;
+            borderAge.BorderBrush = borderSurname.BorderBrush = default;
             textBoxName.ToolTip = textBoxSurname.ToolTip = labelAge.ToolTip = default;
         }
 
@@ -91,7 +93,7 @@ namespace Lab1
             if (!nameCorrect)
             {
                 textBoxName.Background = box_b;
-                borderName.BorderBrush = border_b;
+                //borderName.BorderBrush = border_b;
                 textBoxName.ToolTip = "Nieprawidłowe imie";
             }
             if (!surnameCorrect)
@@ -108,9 +110,24 @@ namespace Lab1
             }
         }
 
+        private bool IsNoEmpty(TextBoxWithErrorProvider tb)
+        {
+            if(tb.Text.Trim() != "")
+            {
+                tb.SetError("");
+                return true;
+            }
+            tb.SetError("Pole nei może być puste");
+            return false;
+        }
+
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
             Check();
+            if(IsNoEmpty(textBoxError) & IsNoEmpty(textBoxError1))
+            {
+
+            }
         }
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)

@@ -12,3 +12,6 @@ D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1.Properties.Resources
 D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1.csproj.GenerateResource.cache
 D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1.exe
 D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\Lab1.pdb
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\TextBoxWithErrorProvider.g.cs
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Studia\semestr IV\Programowanie\Lab1\Lab1\obj\Debug\TextBoxWithErrorProvider.baml
