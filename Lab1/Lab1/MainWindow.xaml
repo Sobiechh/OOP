@@ -12,24 +12,21 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <StackPanel x:Name="stackPanelName" Grid.Column="0">
+            
             <Label x:Name="labelName">Imie</Label>
-            <!--<Border Name="borderName" BorderThickness="0.9">  TExtBoxwithError-->
-                <TextBox x:Name="textBoxName" FontSize="21" ></TextBox>
-                <local:TextBoxWithErrorProvider x:Name="textBoxError" Margin="5"/>
-            <!--</Border>-->
+            <local:TextBoxWithErrorProvider x:Name="textBoxErrorName" Margin="5"/>
+            
             <Label x:Name="labelSurname">Nazwisko</Label>
-            <Border x:Name="borderSurname" BorderThickness="0.9">
-                <TextBox x:Name="textBoxSurname" FontSize="21"> </TextBox>
-            </Border>
-            <local:TextBoxWithErrorProvider x:Name="textBoxError1" Margin="5"/>
+            <local:TextBoxWithErrorProvider x:Name="textBoxErrorSurname" Margin="5"/>
+            
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="labelAge">Wiek</Label>
                 <Border x:Name="borderAge" BorderThickness="0.9">
                     <Label x:Name="labelAgeValue" Width="40"/>
                 </Border>
             </StackPanel>
+
             <Slider x:Name="sliderAge" Value="0" Minimum="0" Maximum="100"  TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="sliderAge_ValueChanged">
-                
             </Slider>
             
             <Grid>
@@ -44,6 +41,7 @@
                 <Button x:Name="buttonDelete" Content="Usuń" Grid.Column="2" Click="buttonDelete_Click" />
 
             </Grid>
+            
         </StackPanel>
      
         <ListBox x:Name="listBoxName" Grid.Column="1" SelectionChanged="listBoxName_SelectionChanged" Background="Azure"/>

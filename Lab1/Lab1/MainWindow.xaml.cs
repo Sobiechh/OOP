@@ -47,86 +47,38 @@ namespace Lab1
             InitializeComponent();
             //klucz oznacza properties
             //blysakawica - event
-            textBoxError.Text = "działa";
         }
 
         private void clear()
         {
-            textBoxName.Text = "";
-            textBoxSurname.Text = "";
+            textBoxErrorName.Text = "";
+            textBoxErrorSurname.Text = "";
             sliderAge.Value = 0;
         }
 
-        private void clearColors()
-        {
-            textBoxSurname.Background = textBoxName.Background = labelAge.Background = default;
-            borderAge.BorderBrush = borderSurname.BorderBrush = default;
-            textBoxName.ToolTip = textBoxSurname.ToolTip = labelAge.ToolTip = default;
-        }
 
-        private void Check()
+        private bool isCorrect(TextBoxWithErrorProvider tb)
         {
-            bool nameCorrect = textBoxName.Text.Length != 0 & textBoxName.Text.All(char.IsLetter) ? true : false;
-            bool surnameCorrect = textBoxSurname.Text.Length != 0 & textBoxSurname.Text.All(char.IsLetter) ? true : false;
-            bool ageCorrect = sliderAge.Value != 0 ? true : false;
-            var box_b = new SolidColorBrush(Color.FromRgb(255, 167, 187));
-            var border_b = System.Windows.Media.Brushes.Red;
-
-            if (nameCorrect & surnameCorrect & ageCorrect)
+            if(!(tb.Text.All(char.IsLetter)))
             {
-                listBoxName.Items.Add(new Person(textBoxName.Text.ToString(), textBoxSurname.Text.ToString(), sliderAge.Value));
-                clear();
-                clearColors();
+                tb.SetError("Wprowadź ponownie");
+                return false;
             }
-            if(nameCorrect)
+            if(tb.Text.Trim() == "")
             {
-                clearColors();
+                tb.SetError("Pole nie może być puste");
+                return false;
             }
-            if (surnameCorrect)
-            {
-                clearColors();
-            }
-            if (ageCorrect)
-            {
-                clearColors();
-            }
-            if (!nameCorrect)
-            {
-                textBoxName.Background = box_b;
-                //borderName.BorderBrush = border_b;
-                textBoxName.ToolTip = "Nieprawidłowe imie";
-            }
-            if (!surnameCorrect)
-            {
-                textBoxSurname.Background = box_b;
-                borderSurname.BorderBrush = border_b;
-                textBoxSurname.ToolTip = "Nieprawidłowe nazwisko";
-            }
-            if (!ageCorrect)
-            {
-                borderAge.Background = box_b;
-                borderAge.BorderBrush = border_b;
-                labelAge.ToolTip = "Nieprawidłowy wiek";
-            }
-        }
-
-        private bool IsNoEmpty(TextBoxWithErrorProvider tb)
-        {
-            if(tb.Text.Trim() != "")
-            {
-                tb.SetError("");
-                return true;
-            }
-            tb.SetError("Pole nei może być puste");
-            return false;
+            tb.SetError("");
+            return true;
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            Check();
-            if(IsNoEmpty(textBoxError) & IsNoEmpty(textBoxError1))
+            if(isCorrect(textBoxErrorName) & isCorrect(textBoxErrorSurname))
             {
-
+                listBoxName.Items.Add(new Person(textBoxErrorName.Text.ToString(), textBoxErrorSurname.Text.ToString(), sliderAge.Value));
+                clear();
             }
         }
 
@@ -136,14 +88,12 @@ namespace Lab1
             var select_id = listBoxName.SelectedIndex;
             try
             {
-                person_selected.name = textBoxName.Text.ToString();
-                person_selected.surname = textBoxSurname.Text.ToString();
+                person_selected.name = textBoxErrorName.Text.ToString();
+                person_selected.surname = textBoxErrorSurname.Text.ToString();
                 person_selected.age = Convert.ToDouble(labelAgeValue.Content.ToString());
                 listBoxName.Items.Insert(select_id, person_selected.ToString());
                 listBoxName.Items.Remove(listBoxName.SelectedItem);
-
                 clear();
-                clearColors();
             }
             catch
             {
@@ -175,8 +125,8 @@ namespace Lab1
             try
             {
                 Person person = listBoxName.SelectedItem as Person;
-                textBoxName.Text = person.name.ToString();
-                textBoxSurname.Text = person.surname.ToString();
+                textBoxErrorName.Text = person.name.ToString();
+                textBoxErrorSurname.Text = person.surname.ToString();
                 labelAgeValue.Content = person.age.ToString();
             }
             catch
