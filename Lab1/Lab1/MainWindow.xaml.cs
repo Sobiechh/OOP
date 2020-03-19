@@ -21,7 +21,6 @@ namespace Lab1
             //partial - czesc implementacji klasy
     public partial class MainWindow : Window
     {
-
         private class Person
         {
             public string name { get; set; } = "";
@@ -113,6 +112,7 @@ namespace Lab1
             try
             {
                 listBoxName.Items.RemoveAt(selected);
+                clear();
             }
             catch
             {

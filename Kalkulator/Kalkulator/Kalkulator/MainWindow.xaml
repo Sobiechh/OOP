@@ -26,8 +26,8 @@
             <Button x:Name="b1" Grid.Column="0" Content="1"/>
             <Button x:Name="b2" Grid.Column="1" Content="2"/>
             <Button x:Name="b3" Grid.Column="2" Content="3"/>
-            <Button x:Name="bdelete" Grid.Column="3" Content="Del"/>
-            <Button x:Name="bclear" Grid.Column="4" Content="Clear"/>
+            <Button x:Name="bdelete" Grid.Column="3" Content="C"/>
+            <Button x:Name="bclear" Grid.Column="4" Content="AC"/>
             <Button x:Name="b4" Grid.Column="0" Grid.Row="1" Content="4"/>
             <Button x:Name="b5" Grid.Column="1" Grid.Row="1" Content="5"/>
             <Button x:Name="b6" Grid.Column="2" Grid.Row="1" Content="6"/>
