@@ -19,7 +19,8 @@ namespace Kalkulator
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {   
+    {
+        int oper; //which operation
 
         private void numClick(object sender, RoutedEventArgs e)
         {
@@ -51,13 +52,17 @@ namespace Kalkulator
         private void opClick(object sender, RoutedEventArgs e)
         {
             String operation = ((Button)sender).Content.ToString();
+            
+            if (operation == "=")
+            {
+                Calculate();
+            }
+            else if (operation == "+")
+            {
 
+            }
         }
 
-        private void op2Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         void Calculate()
         {

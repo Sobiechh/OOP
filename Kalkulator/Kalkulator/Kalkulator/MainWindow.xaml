@@ -58,10 +58,10 @@
             <Button x:Name="bdivide"    Grid.Column="4" Grid.Row="3" Click="opClick" Content="/"/>
 
             <!--extra op-->
-            <Button x:Name="bpower"     Grid.Column="4" Grid.Row="0" Click="op2Click" Content="x^2"/>
-            <Button x:Name="bsqrt"      Grid.Column="3" Grid.Row="0" Click="op2Click" Content="sqrt(x)"/>
-            <Button x:Name="breverse"   Grid.Column="3" Grid.Row="1" Click="op2Click" Content="1/x"/>
-            <Button x:Name="bprcnt"     Grid.Column="4" Grid.Row="1" Click="op2Click" Content="%"/>
+            <Button x:Name="bpower"     Grid.Column="4" Grid.Row="0" Click="opClick" Content="x^2"/>
+            <Button x:Name="bsqrt"      Grid.Column="3" Grid.Row="0" Click="opClick" Content="sqrt(x)"/>
+            <Button x:Name="breverse"   Grid.Column="3" Grid.Row="1" Click="opClick" Content="1/x"/>
+            <Button x:Name="bprcnt"     Grid.Column="4" Grid.Row="1" Click="opClick" Content="%"/>
             
             <!--equals-->
             <Button x:Name="bequals" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Click="opClick" Content="="/>
