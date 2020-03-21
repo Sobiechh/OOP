@@ -19,13 +19,58 @@ namespace Kalkulator
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {   
 
-        
+        private void numClick(object sender, RoutedEventArgs e)
+        {
+            if (((Button)sender).Name == "bdelete")
+            {
+                if (currentEquation.Text.Length > 0)
+                {
+                    currentEquation.Text = currentEquation.Text.Remove(currentEquation.Text.Length - 1);
+                }
+            }
+            else if (((Button)sender).Name == "bchange")
+            {
+                if (currentEquation.Text.Substring(0, 1)  == "-")
+                {
+                    currentEquation.Text = currentEquation.Text.Substring(1,currentEquation.Text.Length-1);
+                }
+                else
+                {
+                    currentEquation.Text = "-" + currentEquation.Text;
+                }
+            }
+            else
+            {
+                currentEquation.Text += ((Button)sender).Content; 
+            }
+        }
+
+    
+        private void opClick(object sender, RoutedEventArgs e)
+        {
+            String operation = ((Button)sender).Content.ToString();
+
+        }
+
+        private void op2Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        void Calculate()
+        {
+
+        }
+
 
         public MainWindow()
         {
             InitializeComponent();
+            
         }
+
+        
     }
 }
