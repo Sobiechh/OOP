@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Kalkulator Piotr Sobieszczyk" Height="450" Width="800">
     <DockPanel>
-        <TextBlock DockPanel.Dock="Top" x:Name="infoText" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="CadetBlue" Text="{Binding infoValue}"> info
+        <TextBlock DockPanel.Dock="Top" x:Name="infoText" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="CadetBlue" Text="{Binding infoValue}">
         </TextBlock>
         
         <!--current-->
@@ -43,8 +43,8 @@
             <Button x:Name="b0" Grid.Column="1" Click="numClick" Grid.Row="4" Content="0"/>
             
             <!--delete-->
-            <Button x:Name="bdeleteAll" Grid.Column="0" Click="numClick" Content="C"/>
-            <Button x:Name="bclear"     Grid.Column="1" Click="numClick" Content="AC"/>
+            <Button x:Name="bclear"     Grid.Column="0" Click="numClick" Content="AC"/>
+            <Button x:Name="bdeleteAll" Grid.Column="1" Click="numClick" Content="C"/>
             <Button x:Name="bdelete"    Grid.Column="2" Click="numClick" Content="&lt;x"/>
             
             <!--change-->
