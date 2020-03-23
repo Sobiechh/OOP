@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Kalkulator"
         mc:Ignorable="d"
         Title="Kalkulator Piotr Sobieszczyk" Height="450" Width="800">
+  
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" x:Name="infoText" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="CadetBlue" Text="{Binding infoValue}">
         </TextBlock>
@@ -29,42 +30,45 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+           
+           
             
             <!-- Numbers -->         
-            <Button x:Name="b1" Grid.Column="0" Click="numClick" Grid.Row="1" Content="1"/>
-            <Button x:Name="b2" Grid.Column="1" Click="numClick" Grid.Row="1" Content="2"/>
-            <Button x:Name="b3" Grid.Column="2" Click="numClick" Grid.Row="1" Content="3"/>
-            <Button x:Name="b4" Grid.Column="0" Click="numClick" Grid.Row="2" Content="4"/>
-            <Button x:Name="b5" Grid.Column="1" Click="numClick" Grid.Row="2" Content="5"/>
-            <Button x:Name="b6" Grid.Column="2" Click="numClick" Grid.Row="2" Content="6"/>
-            <Button x:Name="b7" Grid.Column="0" Click="numClick" Grid.Row="3" Content="7"/>
-            <Button x:Name="b8" Grid.Column="1" Click="numClick" Grid.Row="3" Content="8"/>
-            <Button x:Name="b9" Grid.Column="2" Click="numClick" Grid.Row="3" Content="9"/>
-            <Button x:Name="b0" Grid.Column="1" Click="numClick" Grid.Row="4" Content="0"/>
+            <Button x:Name="b1" Grid.Column="0" Click="numClick" Grid.Row="1" Content="1" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="b2" Grid.Column="1" Click="numClick" Grid.Row="1" Content="2" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="b3" Grid.Column="2" Click="numClick" Grid.Row="1" Content="3" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="b4" Grid.Column="0" Click="numClick" Grid.Row="2" Content="4" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="b5" Grid.Column="1" Click="numClick" Grid.Row="2" Content="5" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="b6" Grid.Column="2" Click="numClick" Grid.Row="2" Content="6" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="b7" Grid.Column="0" Click="numClick" Grid.Row="3" Content="7" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="b8" Grid.Column="1" Click="numClick" Grid.Row="3" Content="8" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="b9" Grid.Column="2" Click="numClick" Grid.Row="3" Content="9" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="b0" Grid.Column="1" Click="numClick" Grid.Row="4" Content="0" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
             
             <!--delete-->
-            <Button x:Name="bclear"     Grid.Column="0" Click="numClick" Content="AC"/>
-            <Button x:Name="bdeleteAll" Grid.Column="1" Click="numClick" Content="C"/>
-            <Button x:Name="bdelete"    Grid.Column="2" Click="numClick" Content="&lt;x"/>
+            
+            <Button x:Name="bclear"     Grid.Column="0" Click="numClick" Content="AC"    FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="bdeleteAll" Grid.Column="1" Click="numClick" Content="C"     FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="bdelete"    Grid.Column="2" Click="numClick" Content="&lt;x" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
             
             <!--change-->
-            <Button x:Name="bchange"    Grid.Column="0" Grid.Row="4" Click="numClick" Content="+/-"/>
-            <Button x:Name="bdot"       Grid.Column="2" Grid.Row="4" Click="numClick" Content="."/>
+            <Button x:Name="bchange"    Grid.Column="0" Grid.Row="4" Click="numClick" Content="+/-" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="bdot"       Grid.Column="2" Grid.Row="4" Click="numClick" Content="."   FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
 
             <!--basic op-->
-            <Button x:Name="bplus"      Grid.Column="3" Grid.Row="2" Click="opClick" Content="+"/>
-            <Button x:Name="bminus"     Grid.Column="4" Grid.Row="2" Click="opClick" Content="-"/>
-            <Button x:Name="btimes"     Grid.Column="3" Grid.Row="3" Click="opClick" Content="x"/>
-            <Button x:Name="bdivide"    Grid.Column="4" Grid.Row="3" Click="opClick" Content="/"/>
+            <Button x:Name="bplus"      Grid.Column="3" Grid.Row="2" Click="opClick" Content="+" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="bminus"     Grid.Column="4" Grid.Row="2" Click="opClick" Content="-" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="btimes"     Grid.Column="3" Grid.Row="3" Click="opClick" Content="x" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="bdivide"    Grid.Column="4" Grid.Row="3" Click="opClick" Content="/" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
 
             <!--extra op-->
-            <Button x:Name="bpower"     Grid.Column="4" Grid.Row="0" Click="opClick" Content="x^2"/>
-            <Button x:Name="bsqrt"      Grid.Column="3" Grid.Row="0" Click="opClick" Content="sqrt(x)"/>
-            <Button x:Name="breverse"   Grid.Column="3" Grid.Row="1" Click="opClick" Content="1/x"/>
-            <Button x:Name="bprcnt"     Grid.Column="4" Grid.Row="1" Click="opClick" Content="%"/>
+            <Button x:Name="bpower"     Grid.Column="4" Grid.Row="0" Click="opClick" Content="x^2"     FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="bsqrt"      Grid.Column="3" Grid.Row="0" Click="opClick" Content="sqrt(x)" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="breverse"   Grid.Column="3" Grid.Row="1" Click="opClick" Content="1/x"     FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="bprcnt"     Grid.Column="4" Grid.Row="1" Click="opClick" Content="%"       FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
             
             <!--equals-->
-            <Button x:Name="bequals" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Click="opClick" Content="="/>
+            <Button x:Name="bequals" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Click="opClick" Content="=" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
         </Grid>
     </DockPanel>
 </Window>
