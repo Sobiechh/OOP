@@ -53,7 +53,7 @@
             
             <!--change-->
             <Button x:Name="bchange"    Grid.Column="0" Grid.Row="4" Click="numClick" Content="+/-" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
-            <Button x:Name="bdot"       Grid.Column="2" Grid.Row="4" Click="numClick" Content="."   FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
+            <Button x:Name="bdot"       Grid.Column="2" Grid.Row="4" Click="numClick" Content=","   FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>
 
             <!--basic op-->
             <Button x:Name="bplus"      Grid.Column="3" Grid.Row="2" Click="opClick" Content="+" FontFamily="Consolas" FontWeight="SemiBold" FontSize="23"/>

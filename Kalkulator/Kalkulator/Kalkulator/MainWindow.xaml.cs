@@ -42,12 +42,12 @@ namespace Kalkulator
                 return $"{firstNum}{operation}{secondNum}{equals}";
             }
         }
-        
 
+      
         int oper; //which operation
         string strOper;
         bool is_first = true; //to single num oper
-        double firstNum, secondNum = 0.0;
+        double currentNum, firstNum, secondNum = 0.0;
         bool refresh = false; //po wyniku
 
         private void numClick(object sender, RoutedEventArgs e)
@@ -78,8 +78,8 @@ namespace Kalkulator
             }
             else if(((Button)sender).Name == "bdot")
             {
-                var regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$"); //zeby nie dodawac milion kropek
-                if (regex.IsMatch(currentEquation.Text + "." ))
+                var regex = new Regex(@"^[0-9]*(?:\,[0-9]*)?$"); //zeby nie dodawac milion kropek
+                if (regex.IsMatch(currentEquation.Text + "," ))
                 {
                     currentEquation.Text += ((Button)sender).Content;
                     infoText.Text += ((Button)sender).Content;
@@ -125,13 +125,19 @@ namespace Kalkulator
             {
                 try
                 {
-                    firstNum = double.Parse(currentEquation.Text.ToString(), CultureInfo.InvariantCulture);
+                    firstNum = double.Parse(currentEquation.Text.ToString());
                     is_first = false;
                 }
                 catch { }
             }
 
-            double currentNum = double.Parse(currentEquation.Text.ToString(), CultureInfo.InvariantCulture);
+            try
+            {
+                currentNum = double.Parse(currentEquation.Text.ToString());
+            }
+            catch { }
+
+
 
             //basic opers
             if (operation == "+")
@@ -204,7 +210,7 @@ namespace Kalkulator
         {
             try
             {
-                secondNum = double.Parse(infoText.Text.Split(new string[] { strOper }, StringSplitOptions.None)[1], CultureInfo.InvariantCulture);
+                secondNum = double.Parse(infoText.Text.Split(new string[] { strOper }, StringSplitOptions.None)[1]);
                 is_first = true;
             }
             catch{}
