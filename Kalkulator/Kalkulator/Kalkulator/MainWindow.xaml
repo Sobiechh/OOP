@@ -54,7 +54,7 @@
             <!--basic op-->
             <Button x:Name="bplus"      Grid.Column="3" Grid.Row="2" Click="opClick" Content="+"/>
             <Button x:Name="bminus"     Grid.Column="4" Grid.Row="2" Click="opClick" Content="-"/>
-            <Button x:Name="btimes"     Grid.Column="3" Grid.Row="3" Click="opClick" Content="×"/>
+            <Button x:Name="btimes"     Grid.Column="3" Grid.Row="3" Click="opClick" Content="x"/>
             <Button x:Name="bdivide"    Grid.Column="4" Grid.Row="3" Click="opClick" Content="/"/>
 
             <!--extra op-->

@@ -22,10 +22,33 @@ namespace Kalkulator
     /// </summary>
     public partial class MainWindow : Window
     {
+        public class ShowNums
+        {
+            public string firstNum { get; set; }
+            public string secondNum { get; set; }
+            public string operation { get; set; }
+            public string equals { get; set; }
+
+            public ShowNums(string firstNum, string secondNum, string operation, string equals)
+            {
+                this.firstNum = firstNum;
+                this.secondNum = secondNum;
+                this.operation = operation;
+                this.equals = equals;
+            }
+
+            public override string ToString()
+            {
+                return $"{firstNum}{operation}{secondNum}{equals}";
+            }
+        }
+        
+
         int oper; //which operation
         string strOper;
         bool is_first = true; //to single num oper
         double firstNum, secondNum = 0.0;
+        bool refresh = false; //po wyniku
 
         private void numClick(object sender, RoutedEventArgs e)
         {
@@ -91,6 +114,12 @@ namespace Kalkulator
     
         private void opClick(object sender, RoutedEventArgs e)
         {
+            if (refresh)
+            {
+                infoText.Text = currentEquation.Text;
+                refresh = false;
+            }
+
             string operation = ((Button)sender).Content.ToString(); //oper potem do string
             if(is_first)
             {
@@ -101,7 +130,9 @@ namespace Kalkulator
                 }
                 catch { }
             }
-            
+
+            double currentNum = double.Parse(currentEquation.Text.ToString(), CultureInfo.InvariantCulture);
+
             //basic opers
             if (operation == "+")
             { 
@@ -119,32 +150,52 @@ namespace Kalkulator
             {
                 oper = 4;
             }
+
             //advanced opers 
-            else if (operation == "x^2")
+            if (operation == "x^2")
             {
-                oper = 5;
+                infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
+                currentEquation.Text = (currentNum*currentNum).ToString();
+                infoText.Text += currentEquation.Text;
+                firstNum = currentNum*currentNum;
             }
             else if (operation == "sqrt(x)")
             {
-                oper = 6;
+                infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
+                currentEquation.Text = (Math.Sqrt(currentNum)).ToString();
+                infoText.Text += currentEquation.Text;
+                firstNum = (Math.Sqrt(currentNum));
             }
             else if (operation == "1/x")
             {
-                oper = 7;
+                infoText.Text = infoText.Text.Remove(infoText.Text.Length-currentEquation.Text.Length);
+                currentEquation.Text = ((1/currentNum)).ToString();
+                infoText.Text += currentEquation.Text;
+                firstNum = ((1 / currentNum));
             }
             else if (operation == "%")
             {
-                oper = 8;
+                infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
+                currentEquation.Text = ((currentNum/100)).ToString();
+                infoText.Text += currentEquation.Text;
+                firstNum = currentNum/100;
             }
+
             //result
-            else if(operation == "=")
+            else if (operation == "=")
             {
                 Calculate();
+                refresh = true;
+                
+            }
+
+
+            if (operation == "+" | operation == "-" | operation == "/" | operation == "x")
+            {
+                currentEquation.Text = "";
+                infoText.Text += operation;
             }
             
-            if (operation != "=") currentEquation.Text = "";
-            
-            infoText.Text += operation;
             strOper = operation;
         }
 
@@ -158,7 +209,8 @@ namespace Kalkulator
             }
             catch{}
 
-            //infoText.Text = $"Pierwsze: {firstNum}, Drugie: {secondNum}";
+            //do testow
+            //infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
 
             double result;
             switch (oper)
@@ -176,48 +228,15 @@ namespace Kalkulator
                     result = firstNum / secondNum;
                     break;
                 default:
-                    result = 0;
+                    result = 100000000000000;
                     break;
             }
             currentEquation.Text =  result.ToString();
         }
 
-        void Calculate2() //single num op
-        {
-            double num, res=0.0;
-            if(is_first)
-            {
-                num = firstNum;
-            }
-            else
-            {
-                num = secondNum;
-            }
-
-            switch (oper)
-            {
-                case 5:
-                    res = num * num;
-                    break;
-                case 6:
-                    res = Math.Sqrt(num);
-                    break;
-                case 7:
-                    res = 1 / num;
-                    break;
-                case 8:
-                    res = num / 100;
-                    break;
-                default:
-                    res = 0;
-                    break;
-            }
-        }
             public MainWindow()
         {
             InitializeComponent();   
-        }
-
-        
+        }        
     }
 }
