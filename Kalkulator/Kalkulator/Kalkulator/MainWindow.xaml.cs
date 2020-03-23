@@ -34,11 +34,19 @@ namespace Kalkulator
                 if (currentEquation.Text.Length > 0)
                 {
                     currentEquation.Text = currentEquation.Text.Remove(currentEquation.Text.Length - 1);
+                    infoText.Text = infoText.Text.Remove(infoText.Text.Length - 1);
                 }
             }
             else if(((Button)sender).Name == "bdeleteAll")
             {
-                infoText.Text = infoText.Text.Substring(0,currentEquation.Text.Length);
+                try
+                {
+                    infoText.Text = infoText.Text.Remove(infoText.Text.Length-currentEquation.Text.Length);
+                }
+                catch
+                {
+
+                }
                 currentEquation.Text = "";
             }
             else if(((Button)sender).Name == "bclear")
@@ -56,21 +64,22 @@ namespace Kalkulator
             }
             else if (((Button)sender).Name == "bchange")
             {
-                try 
-                { 
-                    if (currentEquation.Text.Substring(0, 1)  == "-")
+                try
+                {
+                    if (currentEquation.Text.Substring(0, 1) == "-")
                     {
-                        currentEquation.Text = currentEquation.Text.Substring(1,currentEquation.Text.Length-1);
+                        currentEquation.Text = currentEquation.Text.Substring(1, currentEquation.Text.Length - 1);
+                        infoText.Text = infoText.Text.Remove(infoText.Text.Length - (currentEquation.Text.Length + 1));
+                        infoText.Text += currentEquation.Text;
                     }
-                    else 
+                    else
                     {
                         currentEquation.Text = "-" + currentEquation.Text;
+                        infoText.Text = infoText.Text.Remove(infoText.Text.Length - (currentEquation.Text.Length - 1));
+                        infoText.Text += currentEquation.Text;
                     }
                 }
-                catch
-                {
-
-                }
+                catch { }
             }
             else
             {
@@ -83,13 +92,18 @@ namespace Kalkulator
         private void opClick(object sender, RoutedEventArgs e)
         {
             string operation = ((Button)sender).Content.ToString(); //oper potem do string
-
-            if (operation == "=")
+            if(is_first)
             {
-                Calculate();
+                try
+                {
+                    firstNum = double.Parse(currentEquation.Text.ToString(), CultureInfo.InvariantCulture);
+                    is_first = false;
+                }
+                catch { }
             }
+            
             //basic opers
-            else if (operation == "+")
+            if (operation == "+")
             { 
                 oper = 1;
             }
@@ -122,18 +136,14 @@ namespace Kalkulator
             {
                 oper = 8;
             }
-
-
-            try
+            //result
+            else if(operation == "=")
             {
-                firstNum = double.Parse(currentEquation.Text.ToString(), CultureInfo.InvariantCulture);
+                Calculate();
             }
-            catch
-            {
-
-            }
-            is_first = false;
-            currentEquation.Text = "";
+            
+            if (operation != "=") currentEquation.Text = "";
+            
             infoText.Text += operation;
             strOper = operation;
         }
@@ -144,11 +154,12 @@ namespace Kalkulator
             try
             {
                 secondNum = double.Parse(infoText.Text.Split(new string[] { strOper }, StringSplitOptions.None)[1], CultureInfo.InvariantCulture);
+                is_first = true;
             }
-            catch
-            {
+            catch{}
 
-            }
+            //infoText.Text = $"Pierwsze: {firstNum}, Drugie: {secondNum}";
+
             double result;
             switch (oper)
             {
@@ -168,40 +179,39 @@ namespace Kalkulator
                     result = 0;
                     break;
             }
-
+            currentEquation.Text =  result.ToString();
         }
 
-        double Calculate2() //single num op
+        void Calculate2() //single num op
         {
-            double num=0.0;
+            double num, res=0.0;
             if(is_first)
             {
-                num = double.Parse(currentEquation.Text.ToString(), CultureInfo.InvariantCulture);
+                num = firstNum;
             }
             else
             {
-                num = double.Parse(infoText.Text.Split(new string[] { strOper }, StringSplitOptions.None)[1], CultureInfo.InvariantCulture);
+                num = secondNum;
             }
 
             switch (oper)
             {
                 case 5:
-                    return num * num;
+                    res = num * num;
                     break;
                 case 6:
-                    return Math.Sqrt(num);
+                    res = Math.Sqrt(num);
                     break;
                 case 7:
-                    return 1 / num;
+                    res = 1 / num;
                     break;
                 case 8:
-                    return num / 100;
+                    res = num / 100;
                     break;
                 default:
-                    return 0;
+                    res = 0;
                     break;
             }
-            return 0;
         }
             public MainWindow()
         {
