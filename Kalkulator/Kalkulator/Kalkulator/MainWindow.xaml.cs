@@ -160,31 +160,19 @@ namespace Kalkulator
             //advanced opers 
             if (operation == "x^2")
             {
-                infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
-                currentEquation.Text = (currentNum*currentNum).ToString();
-                infoText.Text += currentEquation.Text;
-                firstNum = currentNum*currentNum;
+                singleNum(currentNum * currentNum);
             }
             else if (operation == "sqrt(x)")
             {
-                infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
-                currentEquation.Text = (Math.Sqrt(currentNum)).ToString();
-                infoText.Text += currentEquation.Text;
-                firstNum = (Math.Sqrt(currentNum));
+                singleNum((Math.Sqrt(currentNum)));
             }
             else if (operation == "1/x")
             {
-                infoText.Text = infoText.Text.Remove(infoText.Text.Length-currentEquation.Text.Length);
-                currentEquation.Text = ((1/currentNum)).ToString();
-                infoText.Text += currentEquation.Text;
-                firstNum = ((1 / currentNum));
+                singleNum((1 / currentNum));
             }
             else if (operation == "%")
             {
-                infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
-                currentEquation.Text = ((currentNum/100)).ToString();
-                infoText.Text += currentEquation.Text;
-                firstNum = currentNum/100;
+                singleNum(currentNum / 100);
             }
 
             //result
@@ -206,6 +194,17 @@ namespace Kalkulator
         }
 
 
+        void singleNum(double xnum)
+        {
+            infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
+            currentEquation.Text = (xnum).ToString();
+            infoText.Text += currentEquation.Text;
+            if (is_first)
+                firstNum = xnum;
+            else
+                secondNum = xnum;
+        }
+
         void Calculate()
         {
             try
@@ -216,7 +215,7 @@ namespace Kalkulator
             catch{}
 
             //do testow
-            //infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
+            infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
 
             double result;
             switch (oper)
