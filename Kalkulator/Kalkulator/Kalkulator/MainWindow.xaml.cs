@@ -214,8 +214,8 @@ namespace Kalkulator
             }
             catch{}
 
-            //do testow
-            infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
+            //test
+            //infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
 
             double result;
             switch (oper)
