@@ -21,6 +21,14 @@ namespace Lab1
             this.age = age;
         }
 
+        public bool isTheSame(Person pilkarz)
+        {
+            if (pilkarz.surname != surname) return false;
+            if (pilkarz.name != name) return false;
+            if (pilkarz.age != age) return false;
+            return true;
+        }
+
         public override string ToString()
         {
             return $"Imie: {name}, Nazwisko: {surname}, Wiek: {age}";

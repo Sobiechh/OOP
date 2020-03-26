@@ -59,8 +59,30 @@ namespace Lab1
         {
             if(isCorrect(textBoxErrorName) & isCorrect(textBoxErrorSurname))
             {
-                listBoxName.Items.Add(new Person(textBoxErrorName.Text.ToString(), textBoxErrorSurname.Text.ToString(), sliderAge.Value));
-                clear();
+                var biezacyPilkarz = new Person(textBoxErrorName.Text.Trim(), textBoxErrorSurname.Text.Trim(), sliderAge.Value);
+                var ifExist = false;
+                foreach (var p in listBoxName.Items)
+                {
+                    var pilkarz = p as Person;
+                    if (pilkarz.isTheSame(biezacyPilkarz))
+                    {
+                        ifExist = true;
+                        break;
+                    }
+                }
+                if (!ifExist)
+                {
+                    listBoxName.Items.Add(biezacyPilkarz);
+                    clear();
+                }
+                else
+                {
+                    var dialog = MessageBox.Show($"{biezacyPilkarz.ToString()} już jest na liście {Environment.NewLine} Czy wyczyścić formularz?", "Uwaga", MessageBoxButton.OKCancel);
+                    if (dialog == MessageBoxResult.OK)
+                    {
+                        clear();
+                    }
+                }
             }
         }
 
@@ -134,8 +156,6 @@ namespace Lab1
                 }
                 Archiwizacja.ZapisPilkarzyDoPliku(plikArchiwizacji, pilkarze);
             }
-
-
         }
 
         //po wywolaniu okna

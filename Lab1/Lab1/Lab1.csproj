@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Archiwizacja.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="TextBoxWithErrorProvider.xaml.cs">
       <DependentUpon>TextBoxWithErrorProvider.xaml</DependentUpon>
     </Compile>
