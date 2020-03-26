@@ -21,24 +21,6 @@ namespace Lab1
             //partial - czesc implementacji klasy
     public partial class MainWindow : Window
     {
-        private class Person
-        {
-            public string name { get; set; } = "";
-            public string surname { get; set; } = "";
-            public double age { get; set; } = 0.0;
-
-            public Person(string name, string surname, double age)
-            {
-                this.name = name;
-                this.surname = surname;
-                this.age = age;
-            }
-
-            public override string ToString()
-            {
-                return $"Imie: {name}, Nazwisko: {surname}, Wiek: {age}";
-            }
-        }
 
         public MainWindow()
         {
@@ -52,8 +34,10 @@ namespace Lab1
         {
             textBoxErrorName.Text = "";
             textBoxErrorSurname.Text = "";
-            sliderAge.Value = 0;
+            sliderAge.Value = 29;
         }
+
+
 
 
         private bool isCorrect(TextBoxWithErrorProvider tb)

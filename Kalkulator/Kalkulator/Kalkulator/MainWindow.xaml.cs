@@ -118,10 +118,10 @@ namespace Kalkulator
             {
                 infoText.Text = currentEquation.Text;
                 refresh = false;
+                firstNum = secondNum = 0.0;
             }
 
-            string operation = ((Button)sender).Content.ToString(); //oper potem do string
-            if(is_first)
+            if (is_first)
             {
                 try
                 {
@@ -136,8 +136,7 @@ namespace Kalkulator
                 currentNum = double.Parse(currentEquation.Text.ToString());
             }
             catch { }
-
-
+            string operation = ((Button)sender).Content.ToString(); //oper potem do string
 
             //basic opers
             if (operation == "+")
@@ -180,9 +179,7 @@ namespace Kalkulator
             {
                 Calculate();
                 refresh = true;
-                
             }
-
 
             if (operation == "+" | operation == "-" | operation == "/" | operation == "x")
             {
@@ -199,7 +196,7 @@ namespace Kalkulator
             infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
             currentEquation.Text = (xnum).ToString();
             infoText.Text += currentEquation.Text;
-            if (is_first)
+            if (!is_first)
                 firstNum = xnum;
             else
                 secondNum = xnum;
@@ -215,7 +212,7 @@ namespace Kalkulator
             catch{}
 
             //test
-            //infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
+            infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
 
             double result;
             switch (oper)
@@ -233,7 +230,7 @@ namespace Kalkulator
                     result = firstNum / secondNum;
                     break;
                 default:
-                    result = 100000000000000;
+                    result = 0;
                     break;
             }
             currentEquation.Text =  result.ToString();
