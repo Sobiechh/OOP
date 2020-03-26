@@ -21,6 +21,7 @@ namespace Lab1
             //partial - czesc implementacji klasy
     public partial class MainWindow : Window
     {
+        private string plikArchiwizacji = "archiwum.txt";
 
         public MainWindow()
         {
@@ -36,8 +37,6 @@ namespace Lab1
             textBoxErrorSurname.Text = "";
             sliderAge.Value = 29;
         }
-
-
 
 
         private bool isCorrect(TextBoxWithErrorProvider tb)
@@ -84,6 +83,7 @@ namespace Lab1
             }
 
         }
+
         private void sliderAge_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             string ageValue = sliderAge.Value.ToString();
@@ -119,5 +119,35 @@ namespace Lab1
             }
         }
 
+        //arch przy zamknieciu
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            int n = listBoxName.Items.Count;
+            Person[] pilkarze = null;
+            if (n > 0)
+            {
+                pilkarze = new Person[n];
+                int index = 0;
+                foreach (var o in listBoxName.Items)
+                {
+                    pilkarze[index++] = o as Person;
+                }
+                Archiwizacja.ZapisPilkarzyDoPliku(plikArchiwizacji, pilkarze);
+            }
+
+
+        }
+
+        //po wywolaniu okna
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var pilkarze = Archiwizacja.CzytajPilkarzyZPliku(plikArchiwizacji);
+            if (pilkarze != null)
+                foreach (var p in pilkarze)
+                {
+                    listBoxName.Items.Add(p);
+                }
+
+        }
     }
 }
