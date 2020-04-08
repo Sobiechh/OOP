@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 
 namespace Kalkulator
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -43,7 +44,7 @@ namespace Kalkulator
             }
         }
 
-      
+        bool has_zero = false;
         int oper; //which operation
         string strOper;
         bool is_first = true; //to single num oper
@@ -88,7 +89,7 @@ namespace Kalkulator
             }
             else if(((Button)sender).Name == "bdot")
             {
-                var regex = new Regex(@"^[0-9]*(?:\,[0-9]*)?$"); //zeby nie dodawac milion kropek
+                var regex = new Regex(@"^[0-9]*(?:\,[0-9]*)?$"); //avoid multiple ','
                 if (regex.IsMatch(currentEquation.Text + "," ))
                 {
                     currentEquation.Text += ((Button)sender).Content;
@@ -99,6 +100,7 @@ namespace Kalkulator
             {
                 try
                 {
+                    //plus to minus 
                     if (currentEquation.Text.Substring(0, 1) == "-")
                     {
                         currentEquation.Text = currentEquation.Text.Substring(1, currentEquation.Text.Length - 1);
@@ -116,8 +118,32 @@ namespace Kalkulator
             }
             else
             {
-                currentEquation.Text += ((Button)sender).Content;
-                infoText.Text += ((Button)sender).Content;
+                if(currentEquation.Text == "")
+                {
+                    currentEquation.Text += ((Button)sender).Content;
+                    infoText.Text += ((Button)sender).Content;
+                    if (currentEquation.Text == "0") has_zero = true;
+                }
+                else
+                {
+                    //if leading zero
+                    if(has_zero)
+                    {
+                        var regex = new Regex(@"^[0-9]*(?:\,[0-9]*)?$");
+                        regex.IsMatch(currentEquation.Text);
+                        if ( ((Button)sender).Name != "b0" && regex.IsMatch(currentEquation.Text))
+                        {
+                            currentEquation.Text += ((Button)sender).Content;
+                            infoText.Text += ((Button)sender).Content;
+                        }
+                    }
+                    else
+                    {
+                        currentEquation.Text += ((Button)sender).Content;
+                        infoText.Text += ((Button)sender).Content;
+                    }
+                    
+                }
             }
         }
 
@@ -125,7 +151,7 @@ namespace Kalkulator
     
         private void opClick(object sender, RoutedEventArgs e)
         {
-            string operation = ((Button)sender).Content.ToString(); //oper potem do string
+            string operation = ((Button)sender).Content.ToString(); //oper to sttring
 
             if (operation == "%" | operation == "x^2" | operation == "1/x" | operation == "sqrt(x)")
             {
@@ -213,14 +239,25 @@ namespace Kalkulator
             } //result
             else if (operation == "=")
             {
-                Calculate();
-                refresh = true;
+                
+                    Calculate();
+                    refresh = true;
+                
             }
 
             if (operation == "+" | operation == "-" | operation == "/" | operation == "x")
             {
                 currentEquation.Text = "";
-                infoText.Text += operation;
+                string last = infoText.Text.Substring(infoText.Text.Length - 1, 1);
+                if (last == "+" | last == "-" | last == "/" | last == "x")
+                {
+                    infoText.Text = infoText.Text.Remove(infoText.Text.Length - 1);
+                    infoText.Text += operation;
+                }
+                else
+                {
+                    infoText.Text += operation;
+                }
             }
             
             strOper = operation;
@@ -234,15 +271,6 @@ namespace Kalkulator
                 infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
                 currentEquation.Text = (xnum).ToString();
                 infoText.Text += currentEquation.Text;
-                //if (!is_first)
-                //{
-                //    firstNum = xnum;
-                //}
-                //else if(is_first)
-                //{
-                //    currentNum= xnum;
-                //}
-                currentNum = xnum;
                 is_adv = false;
             }  
         }
@@ -259,7 +287,7 @@ namespace Kalkulator
             catch{}
             
             //test
-            infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
+            //infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
 
             double result;
             switch (oper)
