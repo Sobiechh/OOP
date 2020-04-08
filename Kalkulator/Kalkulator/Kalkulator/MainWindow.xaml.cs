@@ -52,6 +52,16 @@ namespace Kalkulator
 
         private void numClick(object sender, RoutedEventArgs e)
         {
+            if (refresh)
+            {
+                infoText.Text = "";
+                currentEquation.Text = "";
+                currentNum = secondNum = 0.0;
+                refresh = false;
+                is_first = true;
+                oper = -1;
+            }
+
             if (((Button)sender).Name == "bdelete")
             {
                 if (currentEquation.Text.Length > 0)
@@ -111,15 +121,16 @@ namespace Kalkulator
             }
         }
 
+        bool is_adv;
     
         private void opClick(object sender, RoutedEventArgs e)
         {
-            if (refresh)
-            {
-                infoText.Text = currentEquation.Text;
-                refresh = false;
-                firstNum = secondNum = 0.0;
-            }
+            //if (refresh)
+            //{
+            //    infoText.Text = currentEquation.Text;
+            //    refresh = false;
+            //    firstNum = secondNum = 0.0;
+            //}
 
             if (is_first)
             {
@@ -131,11 +142,13 @@ namespace Kalkulator
                 catch { }
             }
 
+            
             try
             {
                 currentNum = double.Parse(currentEquation.Text.ToString());
             }
             catch { }
+
             string operation = ((Button)sender).Content.ToString(); //oper potem do string
 
             //basic opers
@@ -163,11 +176,29 @@ namespace Kalkulator
             }
             else if (operation == "sqrt(x)")
             {
-                singleNum((Math.Sqrt(currentNum)));
+                if (currentNum < 0)
+                {
+                    infoText.Text = "error";
+                    currentEquation.Text = "Mój kalkulator nie zna liczb zespolonych :)";
+                    refresh = true;
+                }
+                else
+                {
+                    singleNum((Math.Sqrt(currentNum)));
+                }
             }
             else if (operation == "1/x")
             {
-                singleNum((1 / currentNum));
+                if(currentNum == 0)
+                {
+                    infoText.Text = "error";
+                    currentEquation.Text = "Nie mozna dzielic przez zero";
+                    refresh = true;
+                }
+                else
+                {
+                    singleNum((1 / currentNum));
+                }
             }
             else if (operation == "%")
             {
@@ -193,24 +224,36 @@ namespace Kalkulator
 
         void singleNum(double xnum)
         {
-            infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
-            currentEquation.Text = (xnum).ToString();
-            infoText.Text += currentEquation.Text;
-            if (!is_first)
-                firstNum = xnum;
-            else
-                secondNum = xnum;
+            if(currentEquation.Text != "")
+            {
+                is_adv = true;
+                infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
+                currentEquation.Text = (xnum).ToString();
+                infoText.Text += currentEquation.Text;
+                if (!is_first)
+                {
+                    firstNum = xnum;
+                    
+                }
+                else if(is_first)
+                {
+                    secondNum= xnum;
+                    
+                }
+            }
         }
 
         void Calculate()
         {
-            try
+            if(!is_adv && !is_first)
             {
-                secondNum = double.Parse(infoText.Text.Split(new string[] { strOper }, StringSplitOptions.None)[1]);
-                is_first = true;
+                try
+                {
+                    secondNum = double.Parse(infoText.Text.Split(new string[] { strOper }, StringSplitOptions.None)[1]);
+                    is_first = true;
+                }
+                catch{}
             }
-            catch{}
-
             //test
             infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
 
