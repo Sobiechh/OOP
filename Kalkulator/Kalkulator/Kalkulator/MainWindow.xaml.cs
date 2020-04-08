@@ -56,10 +56,10 @@ namespace Kalkulator
             {
                 infoText.Text = "";
                 currentEquation.Text = "";
-                currentNum = secondNum = 0.0;
+                currentNum = secondNum = firstNum = 0.0;
                 refresh = false;
                 is_first = true;
-                oper = -1;
+                oper = -2;
             }
 
             if (((Button)sender).Name == "bdelete")
@@ -121,35 +121,38 @@ namespace Kalkulator
             }
         }
 
-        bool is_adv;
+        bool is_adv = false;
     
         private void opClick(object sender, RoutedEventArgs e)
         {
-            //if (refresh)
-            //{
-            //    infoText.Text = currentEquation.Text;
-            //    refresh = false;
-            //    firstNum = secondNum = 0.0;
-            //}
+            string operation = ((Button)sender).Content.ToString(); //oper potem do string
 
-            if (is_first)
+            if (operation == "%" | operation == "x^2" | operation == "1/x" | operation == "sqrt(x)")
+            {
+                is_adv = true;
+            }
+
+            if (is_first && !is_adv)
             {
                 try
                 {
+                    
                     firstNum = double.Parse(currentEquation.Text.ToString());
                     is_first = false;
+                    is_adv = false;
                 }
                 catch { }
             }
+            else if (is_first && is_adv) firstNum = currentNum;
 
-            
+           
             try
             {
-                currentNum = double.Parse(currentEquation.Text.ToString());
+                currentNum = secondNum = double.Parse(currentEquation.Text.ToString());
             }
             catch { }
-
-            string operation = ((Button)sender).Content.ToString(); //oper potem do string
+            
+            
 
             //basic opers
             if (operation == "+")
@@ -172,10 +175,12 @@ namespace Kalkulator
             //advanced opers 
             if (operation == "x^2")
             {
+                is_adv = true;
                 singleNum(currentNum * currentNum);
             }
             else if (operation == "sqrt(x)")
             {
+                is_adv = true;
                 if (currentNum < 0)
                 {
                     infoText.Text = "error";
@@ -189,7 +194,8 @@ namespace Kalkulator
             }
             else if (operation == "1/x")
             {
-                if(currentNum == 0)
+                is_adv = true;
+                if (currentNum == 0)
                 {
                     infoText.Text = "error";
                     currentEquation.Text = "Nie mozna dzielic przez zero";
@@ -202,10 +208,9 @@ namespace Kalkulator
             }
             else if (operation == "%")
             {
+                is_adv = true;
                 singleNum(currentNum / 100);
-            }
-
-            //result
+            } //result
             else if (operation == "=")
             {
                 Calculate();
@@ -226,34 +231,33 @@ namespace Kalkulator
         {
             if(currentEquation.Text != "")
             {
-                is_adv = true;
                 infoText.Text = infoText.Text.Remove(infoText.Text.Length - currentEquation.Text.Length);
                 currentEquation.Text = (xnum).ToString();
                 infoText.Text += currentEquation.Text;
-                if (!is_first)
-                {
-                    firstNum = xnum;
-                    
-                }
-                else if(is_first)
-                {
-                    secondNum= xnum;
-                    
-                }
-            }
+                //if (!is_first)
+                //{
+                //    firstNum = xnum;
+                //}
+                //else if(is_first)
+                //{
+                //    currentNum= xnum;
+                //}
+                currentNum = xnum;
+                is_adv = false;
+            }  
         }
 
         void Calculate()
         {
-            if(!is_adv && !is_first)
+            
+            try
             {
-                try
-                {
-                    secondNum = double.Parse(infoText.Text.Split(new string[] { strOper }, StringSplitOptions.None)[1]);
-                    is_first = true;
-                }
-                catch{}
+                secondNum = currentNum;
+                //secondNum = double.Parse(infoText.Text.Split(new string[] { strOper }, StringSplitOptions.None)[1]);
+                is_first = true;
             }
+            catch{}
+            
             //test
             infoText.Text = $"Operacja:  {oper} Pierwsze: {firstNum}, Drugie: {secondNum}";
 
@@ -270,13 +274,28 @@ namespace Kalkulator
                     result = firstNum * secondNum;
                     break;
                 case 4:
-                    result = firstNum / secondNum;
+                    if(secondNum == 0)
+                    {
+                        infoText.Text = "error";
+                        refresh = true;
+                        result = -1;
+                    }
+                    else
+                    {
+                        result = firstNum / secondNum;
+                    }
                     break;
                 default:
                     result = 0;
                     break;
             }
             currentEquation.Text =  result.ToString();
+            if (result == -1)
+            {
+                currentEquation.Text = "Nie dzielimy przez zero!";
+                refresh = true;
+                result = 0;
+            }
         }
 
             public MainWindow()
