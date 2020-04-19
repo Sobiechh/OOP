@@ -19,7 +19,7 @@
             this.Weight = weight;
         }
 
-        public void Copy(Player player)
+        public void Copy(Player player) //kopia
         {
             FirstName = player.FirstName;
             LastName = player.LastName;

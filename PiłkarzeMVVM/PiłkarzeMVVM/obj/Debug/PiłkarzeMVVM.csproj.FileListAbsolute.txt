@@ -31,3 +31,36 @@ C:\Users\Piotr\Desktop\ProgamowanieObiektoweGraficznePOLSL-master\PiłkarzeMVVM\
 C:\Users\Piotr\Desktop\ProgamowanieObiektoweGraficznePOLSL-master\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM.csproj.CopyComplete
 C:\Users\Piotr\Desktop\ProgamowanieObiektoweGraficznePOLSL-master\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM.exe
 C:\Users\Piotr\Desktop\ProgamowanieObiektoweGraficznePOLSL-master\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM.pdb
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\PiłkarzeMVVM.exe.config
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\PiłkarzeMVVM.exe
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\PiłkarzeMVVM.pdb
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\Newtonsoft.Json.dll
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\System.Buffers.dll
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\System.Memory.dll
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\System.Text.Encodings.Web.dll
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\Newtonsoft.Json.xml
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\System.Buffers.xml
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\System.Memory.xml
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\System.Text.Encodings.Web.xml
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM.csprojAssemblyReference.cache
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\View\MainWindow.g.cs
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\View\TextBoxForLetters.g.cs
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\App.g.cs
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM_MarkupCompile.cache
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM_MarkupCompile.lref
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\View\MainWindow.baml
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\View\TextBoxForLetters.baml
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM.g.resources
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM.Properties.Resources.resources
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM.csproj.GenerateResource.cache
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM.csproj.CopyComplete
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM.exe
+D:\Studia\semestr IV\Programowanie\PiłkarzeMVVM\PiłkarzeMVVM\obj\Debug\PiłkarzeMVVM.pdb

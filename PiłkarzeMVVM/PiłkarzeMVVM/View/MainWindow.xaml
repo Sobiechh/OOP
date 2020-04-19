@@ -4,7 +4,7 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:PiłkarzeMVVM.View"
         xmlns:vm="clr-namespace:PiłkarzeMVVM.ViewModel"
-        Title="MainWindow" Height="600" Width="800" ResizeMode="NoResize">
+        Title="Pilkarze MVVM Piotr Sobieszczyk" Height="600" Width="1000" ResizeMode="NoResize">
     <Window.Resources>
         <vm:Management x:Key="management"/>
     </Window.Resources>

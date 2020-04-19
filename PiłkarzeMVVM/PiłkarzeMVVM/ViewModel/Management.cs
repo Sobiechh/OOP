@@ -71,6 +71,7 @@ namespace PiłkarzeMVVM.ViewModel
             }
         }
 
+        //wiek itemss
         public int[] AgeItems
         {
             get => ageItems;
@@ -81,6 +82,7 @@ namespace PiłkarzeMVVM.ViewModel
             }
         }
 
+        //do bindowania
         public BindingList<Player> Players
         {
             get => players;
@@ -110,7 +112,7 @@ namespace PiłkarzeMVVM.ViewModel
             {
                 if (loadAgeItems is null)
                 {
-                    
+                    //test
 
                     loadData = new RelayCommand(execute =>
                     {
@@ -242,6 +244,7 @@ namespace PiłkarzeMVVM.ViewModel
                     }, canExecute => FieldsNotNull && SelectedPlayer != null
                     );
                 }
+                //return FirstName
                 return deletePlayer;
             }
         }
