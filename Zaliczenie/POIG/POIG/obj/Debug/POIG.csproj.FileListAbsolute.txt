@@ -1,0 +1,7 @@
+C:\Users\User\Desktop\Zaliczenie\POIG\POIG\bin\Debug\POIG.exe.config
+C:\Users\User\Desktop\Zaliczenie\POIG\POIG\bin\Debug\POIG.exe
+C:\Users\User\Desktop\Zaliczenie\POIG\POIG\bin\Debug\POIG.pdb
+C:\Users\User\Desktop\Zaliczenie\POIG\POIG\obj\Debug\POIG.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Zaliczenie\POIG\POIG\obj\Debug\POIG.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Zaliczenie\POIG\POIG\obj\Debug\POIG.exe
+C:\Users\User\Desktop\Zaliczenie\POIG\POIG\obj\Debug\POIG.pdb
